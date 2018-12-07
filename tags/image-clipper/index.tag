@@ -3,8 +3,10 @@
     wrapper: true,
     fit: opts.fit
   }">
-    <div class="rectangle"
-      style="clip-path: {getPolygon()}">
+    <div
+      class="rectangle"
+      style="{getRectangleStyle()}"
+    >
     </div>
 
     <canvas
