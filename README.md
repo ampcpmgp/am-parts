@@ -1,26 +1,20 @@
 # parcel-riot-mocktimes-starter
 
-## for use as starter-kit
+## how to use
 
 ```shell
-git clone https://github.com/ampcpmgp/parcel-riot-mocktimes-starter YOUR_PROJECT_NAME
-cd YOUR_PROJECT_NAME
-rm -rf .git
-git init
+yarn add https://github.com/ampcpmgp/am-parts
 ```
 
-edit `package.json` `name` and `version` property  
-edit `README.md`
+TODO parts
 
-```shell
-yarn
-npm start
-```
+TODO npm
+
 
 ## for developer of this repository
 
 ```shell
-git clone https://github.com/ampcpmgp/parcel-riot-mocktimes-starter
+git clone https://github.com/ampcpmgp/am-parts
 yarn
 npm start
 ```
