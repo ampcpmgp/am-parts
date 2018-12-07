@@ -1,6 +1,6 @@
 {
   "name": "am-parts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -30,8 +30,7 @@
     "standard": "^10.0.3"
   },
   "standard": {
-    "globals": [
-    ]
+    "globals": []
   },
   "lint-staged": {
     "**/*.js": [

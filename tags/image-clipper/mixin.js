@@ -53,9 +53,13 @@ export default {
     const width = Math.abs(baseXPixel - currentXPixel)
     const height = Math.abs(baseYPixel - currentYPixel)
 
-    const imageData = this.context.getImageData(x, y, width, height)
+    if (width && height) {
+      const imageData = this.context.getImageData(x, y, width, height)
 
-    this.opts.callback(imageData)
+      this.opts.callback(imageData)
+    }
+
+    this.update()
   },
 
   moveRectanglePoint (e) {
