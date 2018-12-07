@@ -1,0 +1,56 @@
+{
+  "name": "am-parts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "standard --verbose | snazzy",
+    "precommit": "lint-staged",
+    "start": "start-storybook -p 6008",
+    "build-storybook": "build-storybook"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@storybook/addon-backgrounds": "^4.0.11",
+    "@storybook/addon-knobs": "^4.0.6",
+    "@storybook/addon-storysource": "^4.0.11",
+    "@storybook/addon-viewport": "^4.0.6",
+    "@storybook/addons": "^4.0.6",
+    "@storybook/riot": "^4.0.6",
+    "babel-loader": "^8.0.4",
+    "husky": "^0.14.3",
+    "less": "^3.0.4",
+    "lint-staged": "^7.1.2",
+    "prettier": "^1.12.1",
+    "riot-tag-loader": "^2.1.0",
+    "snazzy": "^7.1.1",
+    "standard": "^10.0.3"
+  },
+  "standard": {
+    "globals": [
+      "opts"
+    ]
+  },
+  "lint-staged": {
+    "**/*.js": [
+      "prettier --write",
+      "standard --fix",
+      "git add"
+    ]
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "babel-polyfill": "^6.26.0",
+    "dob": "^2.5.8",
+    "normalize.css": "^8.0.0",
+    "riot": "^3.10.1",
+    "riot-route": "^3.1.4"
+  }
+}
