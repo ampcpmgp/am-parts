@@ -10,6 +10,10 @@ export default {
       currentY: 0
     })
 
+    this.on('update', () => {
+      this.image.src = this.opts.image
+    })
+
     this.on('mount', () => {
       this.context = this.refs.canvas.getContext('2d')
 
@@ -22,8 +26,23 @@ export default {
     })
   },
 
-  getPolygon () {
-    return `polygon(
+  getRectangleStyle () {
+    const left = this.baseX < this.currentX ? this.baseX : this.currentX
+    const top = this.baseY < this.currentY ? this.baseY : this.currentY
+    const width = Math.abs(this.baseX - this.currentX)
+    const height = Math.abs(this.baseY - this.currentY)
+
+    return `
+      left: ${left * 100}%;
+      top: ${top * 100}%;
+      width: ${width * 100}%;
+      height: ${height * 100}%;
+    `
+  },
+
+  // chrome 66 では正しく表示されないため、 `this.getRectangleStyle` を利用する。
+  getClipPath () {
+    return `clip-path: polygon(
       ${this.baseX * 100}% ${this.baseY * 100}%,
       ${this.currentX * 100}% ${this.baseY * 100}%,
       ${this.currentX * 100}% ${this.currentY * 100}%,
@@ -39,7 +58,6 @@ export default {
     this.isDraggable = true
     this.baseX = this.currentX = x / this.refs.canvas.offsetWidth
     this.baseY = this.currentY = y / this.refs.canvas.offsetHeight
-    this.update()
   },
 
   stopRectangleSelection (e) {
@@ -58,8 +76,6 @@ export default {
 
       this.opts.callback(imageData)
     }
-
-    this.update()
   },
 
   moveRectanglePoint (e) {
@@ -71,6 +87,5 @@ export default {
 
     this.currentX = x / this.refs.canvas.offsetWidth
     this.currentY = y / this.refs.canvas.offsetHeight
-    this.update()
   }
 }
